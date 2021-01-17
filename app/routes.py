@@ -6,12 +6,11 @@ from htn_postprocessing import tohtml
 @app.route('/')
 @app.route('/index')
 def index():
+    #tohtml()
     return render_template('index.html')
 
 @app.route('/pltr')
 def pltr():
-    bar = line()
-    #tohtml()
     return render_template('pltr.html')
 
 @app.route('/tsla')
