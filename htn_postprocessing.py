@@ -19,10 +19,10 @@ end = datetime.today()
 month_ago = datetime.today() - timedelta(days = 15)
 
 #add appropriate stocks here
-stocks = ['PLTR','TSLA', 'NIO']
+stocks = ['PLTR','TSLA', 'NIO', 'GME', 'BB']
 
 #read in pre-processed data
-df = pd.read_csv('sentiment_TSLA.csv')
+df = pd.read_csv('sentiment_BB.csv')
 #converting back to datetime
 df['date'] = pd.to_datetime(df['date'])
 
@@ -56,7 +56,7 @@ colors = ['DarkRed','LightCoral','DarkGreen','LightGreen']
 fig = px.bar(daily_counts, x="day", y=["v_upset", "upset", "v_happy","happy"], 
              color_discrete_sequence = colors, title="Daily Sentiment Counts")
 #fig.update_layout(barmode='group')
-fig2 = px.line(df_stock['TSLA'])
+fig2 = px.line(df_stock['BB'])
 
 fig.add_trace(fig2.data[0])
 
@@ -76,7 +76,7 @@ for col in ["v_upset", "upset", "v_happy","happy"]:
     i+=1
 
 fig.add_trace(
-    go.Line(x=df_stock["day"], y=df_stock['TSLA'], name="TSLA", marker_color ='black'),
+    go.Line(x=df_stock["day"], y=df_stock['BB'], name="BB", marker_color ='black'),
     secondary_y=True,
 )
 
