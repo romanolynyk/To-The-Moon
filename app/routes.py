@@ -1,6 +1,7 @@
 from flask import render_template
 from app import app
-
+from test import line
+from htn_postprocessing import tohtml
 
 @app.route('/')
 @app.route('/index')
@@ -9,6 +10,8 @@ def index():
 
 @app.route('/pltr')
 def pltr():
+    bar = line()
+    #tohtml()
     return render_template('pltr.html')
 
 @app.route('/tsla')

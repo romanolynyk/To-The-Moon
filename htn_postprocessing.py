@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import pandas_datareader.data as web
-import streamlit as st
+#import streamlit as st
 import plotly.express as px
 
 '''
@@ -62,14 +62,16 @@ fig2 = px.line(df_stock['PLTR'])
 
 fig.add_trace(fig2.data[0])
 
-st.plotly_chart(fig)
+def tohtml():
+    fig.write_html("app/templates/plotly.html")
+
+#st.plotly_chart(fig)
 
 
-st.header("PLTR Stock Price")
-st.line_chart(df_stock['PLTR'])
-st.header("Overall Daily Comment Sentiment")
-st.line_chart(daily_averages['compound'])
+#st.header("PLTR Stock Price")
+#st.line_chart(df_stock['PLTR'])
+#st.header("Overall Daily Comment Sentiment")
+#st.line_chart(daily_averages['compound'])
 #st.header("Daily Sentiment Counts")
 #st.bar_chart(daily_counts)
-st.markdown('---')
-
+#st.markdown('---')
